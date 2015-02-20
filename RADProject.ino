@@ -1,8 +1,6 @@
 #include "Carro.h"
-#include "Sensor.h"
 
-Carro carro(8,9,10,11,12,13, 2, 3, 5, 4);
-Sensor sensor(6, 7);
+Carro carro(8,9,10,11,12,13);
 
 byte incomingByte; 
 void setup(){
@@ -17,8 +15,8 @@ void loop(){
   Serial.println(incomingByte);
   Serial.flush(); 
   }   
-  if(sensor.getDistancia() > 10){
     if (incomingByte == 97) {
+      Serial.println('s');
       digitalWrite(2, HIGH);
       carro.adelante();
     } else if (incomingByte == 'b') {
@@ -37,7 +35,4 @@ void loop(){
     }else {
       carro.detener();
     }
-  }else{
-    carro.detener();
-  }
 }
